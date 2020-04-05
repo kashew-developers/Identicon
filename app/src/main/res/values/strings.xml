@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Identicon</string>
+
+    <string name="refresh">Refresh</string>
+    <string name="save">Save</string>
+    <string name="fileLocation">File saved at : %s</string>
+</resources>
