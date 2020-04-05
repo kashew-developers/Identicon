@@ -7,11 +7,11 @@
     </tr>
     <tr>
         <th>Short description</th>
-        <td>Random Images which can be used as profle images. Similar to Github</td>
+        <td>Random Images which can be used as profile images. Similar to Github</td>
     </tr>
     <tr>
         <th>Full description</th>
-        <td> Github style Identicons <br /> This is an open source application. You can view its source code on github [kashew-developers/Identicons](https://github.com/kashew-developers/Identicons)</td>
+        <td> Github style Identicons <br /> This is an open source application. You can view its source code on github <a href="https://github.com/kashew-developers/Identicon">kashew-developers/Identicon</a></td>
     </tr>
 </table>
 
