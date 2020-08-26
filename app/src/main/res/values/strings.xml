@@ -3,5 +3,6 @@
 
     <string name="refresh">Refresh</string>
     <string name="save">Save</string>
+    <string name="share">Share</string>
     <string name="fileLocation">File saved at : %s</string>
 </resources>
