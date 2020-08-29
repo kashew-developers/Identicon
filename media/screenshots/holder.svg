@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1080"
+   height="1920"
+   viewBox="0 0 285.74999 508.00001"
+   version="1.1"
+   id="svg101"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   sodipodi:docname="holder.svg"
+   inkscape:export-filename="/home/ashwek/AndroidStudioProjects/Identicon/media/screenshots/holder.svg.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96">
+  <defs
+     id="defs95" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.175"
+     inkscape:cx="488.47209"
+     inkscape:cy="788.23756"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     units="px"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1366"
+     inkscape:window-height="704"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata98">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="BG"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,211.00001)"
+     style="display:none"
+     sodipodi:insensitive="true">
+    <rect
+       style="opacity:1;fill:#9d00ff;fill-opacity:1;stroke:#ffffff;stroke-width:0.97883165;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect104"
+       width="284.77115"
+       height="507.02118"
+       x="0.48941582"
+       y="-210.51059" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Phone"
+     sodipodi:insensitive="true"
+     style="display:inline">
+    <g
+       id="g881"
+       transform="matrix(0.8693324,0,0,0.8693324,4.5473151,60.14226)">
+      <rect
+         ry="21.384962"
+         y="-27.907446"
+         x="21.033247"
+         height="501.8071"
+         width="279.5571"
+         id="rect106"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.19288969;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         inkscape:connector-curvature="0"
+         id="path913"
+         d="M 17.283829,133.95359 V 163.1844"
+         style="fill:#ffffff;stroke:#000000;stroke-width:5.46293592;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="cc"
+         style="fill:#ffffff;stroke:#000000;stroke-width:5.46293592;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 17.971002,42.243326 V 118.1007"
+         id="path915"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
+</svg>
