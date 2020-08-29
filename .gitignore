@@ -12,3 +12,5 @@
 /captures
 .externalNativeBuild
 .cxx
+*.mp4
+/app/release/*.abb
