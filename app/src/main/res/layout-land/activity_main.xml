@@ -15,8 +15,8 @@
         android:background="@android:color/white"
         android:contentDescription="@string/app_name"
         android:elevation="10dp"
-        app:layout_constraintBottom_toTopOf="@id/horizontalGuideline"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/verticalGuideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,6 +24,7 @@
         android:id="@+id/refreshSection"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:onClick="refreshClicked"
         android:text="@string/refresh"
         android:textSize="18sp"
@@ -32,14 +33,15 @@
         app:iconGravity="textStart"
         app:iconPadding="10dp"
         app:iconTint="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@id/identicon"
-        app:layout_constraintStart_toStartOf="@id/identicon"
-        app:layout_constraintTop_toBottomOf="@id/horizontalGuideline" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/saveSection"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:onClick="saveClicked"
         android:text="@string/save"
@@ -49,8 +51,8 @@
         app:iconGravity="textStart"
         app:iconPadding="10dp"
         app:iconTint="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
-        app:layout_constraintStart_toStartOf="@id/identicon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline"
         app:layout_constraintTop_toBottomOf="@id/refreshSection" />
 
     <com.google.android.material.button.MaterialButton
@@ -58,6 +60,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:onClick="shareClicked"
         android:text="@string/share"
         android:textSize="18sp"
@@ -66,37 +69,30 @@
         app:iconGravity="textStart"
         app:iconPadding="10dp"
         app:iconTint="@android:color/white"
-        app:layout_constraintEnd_toEndOf="@id/identicon"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/verticalGuideline"
-        app:layout_constraintTop_toBottomOf="@id/refreshSection" />
+        app:layout_constraintTop_toBottomOf="@id/saveSection" />
 
     <TextView
         android:id="@+id/fileLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="@string/fileLocation"
         android:textSize="15sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/identicon"
-        app:layout_constraintStart_toStartOf="@id/identicon"
-        app:layout_constraintTop_toBottomOf="@id/saveSection"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/verticalGuideline"
+        app:layout_constraintTop_toBottomOf="@id/sahreSection"
+        app:layout_constraintVertical_bias="0.8" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/verticalGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,8 @@ import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,29 +37,22 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    Bitmap bitmap;
-    Random random;
     ImageView identicon;
     TextView fileLocation;
+
+    Bitmap bitmap;
+    Random random;
+
     int imageSize, borderSize, numberOfBlocks, blockSize;
     int red, green, blue;
     int WRITE_PERMISSION = 1234;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        borderSize = 20;
-        imageSize = 420;
-        numberOfBlocks = 5;
-        blockSize = (imageSize - borderSize - borderSize) / numberOfBlocks;
-        random = new Random();
-        bitmap = Bitmap.createBitmap(imageSize, imageSize, Bitmap.Config.RGB_565);
-        identicon = findViewById(R.id.identicon);
-        fileLocation = findViewById(R.id.fileLocation);
-
+        initialization();
         drawIdenticon();
     }
 
@@ -83,6 +78,45 @@ public class MainActivity extends AppCompatActivity {
                 noPermission();
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+
+    // initialization
+    public void initialization() {
+        borderSize = 20;
+        imageSize = 420;
+        numberOfBlocks = 5;
+        blockSize = (imageSize - borderSize - borderSize) / numberOfBlocks;
+        random = new Random();
+        bitmap = Bitmap.createBitmap(imageSize, imageSize, Bitmap.Config.RGB_565);
+
+        initializeWidgets();
+    }
+
+    public void initializeWidgets() {
+        identicon = findViewById(R.id.identicon);
+        fileLocation = findViewById(R.id.fileLocation);
+
+        identicon.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                identicon.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                setIdenticonSize();
+            }
+        });
+    }
+
+
+    // handle UI elements
+    public void setIdenticonSize() {
+        int height = identicon.getMeasuredHeight();
+        int width = identicon.getMeasuredWidth();
+        int minValue = Math.min(height, width);
+
+        ViewGroup.LayoutParams layoutParams = identicon.getLayoutParams();
+        layoutParams.height = minValue;
+        layoutParams.width = minValue;
+        identicon.setLayoutParams(layoutParams);
     }
 
 
@@ -117,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    // saving identicon
     public File saveIdenticon() {
         String path = Environment.getExternalStorageDirectory().toString();
         OutputStream fOut;
