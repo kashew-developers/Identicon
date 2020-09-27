@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/controlsOption"
+        android:icon="@drawable/settings_icon"
+        android:title="@string/controls"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/refreshOption"
         android:icon="@drawable/refresh"
         android:title="@string/refresh"

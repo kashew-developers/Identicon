@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ControlsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- border size -->
+        <TextView
+            android:id="@+id/borderSizeLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="end"
+            android:text="@string/borderSize"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@id/border_barrier"
+            app:layout_constraintEnd_toStartOf="@id/start_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 10 to 50 -->
+        <SeekBar
+            android:id="@+id/borderSizeController"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="40"
+            android:progress="0"
+            app:layout_constraintBottom_toBottomOf="@id/borderSizeLabel"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
+            app:layout_constraintStart_toEndOf="@id/start_guideline"
+            app:layout_constraintTop_toTopOf="@id/borderSizeLabel" />
+
+        <TextView
+            android:id="@+id/borderSizeValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/sizePx"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/borderSizeLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/end_guideline"
+            app:layout_constraintTop_toTopOf="@id/borderSizeLabel" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/border_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="borderSizeLabel, borderSizeController, borderSizeValue" />
+
+        <!-- number of blocks -->
+        <TextView
+            android:id="@+id/noOfBlockLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="end"
+            android:text="@string/numberOfBlocks"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@id/block_barrier"
+            app:layout_constraintEnd_toStartOf="@id/start_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/border_barrier" />
+
+        <!-- 3, 5, 7 - 21 -->
+        <SeekBar
+            android:id="@+id/noOfBlockController"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="9"
+            android:progress="3"
+            app:layout_constraintBottom_toBottomOf="@id/noOfBlockLabel"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
+            app:layout_constraintStart_toEndOf="@id/start_guideline"
+            app:layout_constraintTop_toTopOf="@id/noOfBlockLabel" />
+
+        <TextView
+            android:id="@+id/noOfBlockValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/sizePx"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/noOfBlockLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/end_guideline"
+            app:layout_constraintTop_toTopOf="@id/noOfBlockLabel" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/block_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="noOfBlockLabel, noOfBlockController, noOfBlockValue" />
+
+        <!-- image size -->
+        <TextView
+            android:id="@+id/imageSizeLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="end"
+            android:text="@string/imageSize"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold|italic"
+            app:layout_constraintBottom_toTopOf="@id/image_barrier"
+            app:layout_constraintEnd_toStartOf="@id/start_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/block_barrier" />
+
+        <!-- 150 to 500 -->
+        <SeekBar
+            android:id="@+id/imageSizeController"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="350"
+            android:progress="3"
+            app:layout_constraintBottom_toBottomOf="@id/imageSizeLabel"
+            app:layout_constraintEnd_toStartOf="@id/end_guideline"
+            app:layout_constraintStart_toEndOf="@id/start_guideline"
+            app:layout_constraintTop_toTopOf="@id/imageSizeLabel" />
+
+        <TextView
+            android:id="@+id/imageSizeValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/sizePx"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imageSizeLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/end_guideline"
+            app:layout_constraintTop_toTopOf="@id/imageSizeLabel" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/image_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="imageSizeLabel, imageSizeController, imageSizeValue" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="resetToDefaultClicked"
+            android:text="@string/resetToDefault"
+            android:textAllCaps="false"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_barrier" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,6 +1,7 @@
 package in.kashewdevelopers.identicon;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -67,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.refreshOption) {
             drawIdenticon();
             return true;
+        } else if (item.getItemId() == R.id.controlsOption) {
+            startActivityForResult(new Intent(this, ControlsActivity.class), 123);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -80,17 +83,29 @@ public class MainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 123) {
+            initializeImageElements();
+            refreshClicked(null);
+        }
+    }
+
 
     // initialization
     public void initialization() {
-        borderSize = 20;
-        imageSize = 420;
-        numberOfBlocks = 5;
-        blockSize = (imageSize - borderSize - borderSize) / numberOfBlocks;
         random = new Random();
-        bitmap = Bitmap.createBitmap(imageSize, imageSize, Bitmap.Config.RGB_565);
-
+        initializeImageElements();
         initializeWidgets();
+    }
+
+    public void initializeImageElements() {
+        borderSize = SharedPrefManager.getBorderSize(this);
+        imageSize = SharedPrefManager.getImageSize(this);
+        numberOfBlocks = SharedPrefManager.getNoOfBlocks(this);
+        blockSize = (imageSize - borderSize - borderSize) / numberOfBlocks;
+        bitmap = Bitmap.createBitmap(imageSize, imageSize, Bitmap.Config.RGB_565);
     }
 
     public void initializeWidgets() {

@@ -1,8 +1,20 @@
 <resources>
     <string name="app_name">Identicon</string>
 
+    <!-- menu -->
     <string name="refresh">Refresh</string>
+    <string name="controls">Controls</string>
+
+    <!-- buttons -->
     <string name="save">Save</string>
     <string name="share">Share</string>
+    <string name="resetToDefault">Reset to Default</string>
+
+    <!-- labels -->
     <string name="fileLocation">File saved at : %s</string>
+    <string name="borderSize">Border Size</string>
+    <string name="numberOfBlocks">Number of Blocks</string>
+    <string name="imageSize">Image Size</string>
+    <string name="sizePx">%d px</string>
+
 </resources>
