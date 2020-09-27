@@ -14,3 +14,4 @@
 .cxx
 *.mp4
 /app/release/*.abb
+ads.xml

@@ -28,6 +28,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -55,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         initialization();
         drawIdenticon();
+        manageAds();
     }
 
     @Override
@@ -303,6 +308,14 @@ public class MainActivity extends AppCompatActivity {
         } else {
             askWritePermission();
         }
+    }
+
+
+    // ads
+    public void manageAds() {
+        MobileAds.initialize(this);
+        AdView adView = findViewById(R.id.adView);
+        adView.loadAd(new AdRequest.Builder().build());
     }
 
 }

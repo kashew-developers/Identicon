@@ -79,11 +79,21 @@
         android:text="@string/fileLocation"
         android:textSize="15sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/adView"
         app:layout_constraintEnd_toEndOf="@id/identicon"
         app:layout_constraintStart_toStartOf="@id/identicon"
         app:layout_constraintTop_toBottomOf="@id/saveSection"
         app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/bottom_ad_id"
+        ads:layout_constraintBottom_toBottomOf="parent"
+        ads:layout_constraintEnd_toEndOf="parent"
+        ads:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/verticalGuideline"
