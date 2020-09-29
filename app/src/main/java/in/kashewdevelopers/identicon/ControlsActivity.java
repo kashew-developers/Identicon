@@ -8,17 +8,18 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SeekBar;
-import android.widget.TextView;
+
+import in.kashewdevelopers.identicon.databinding.ActivityControlsBinding;
 
 public class ControlsActivity extends AppCompatActivity {
 
-    SeekBar borderSizeController, noOfBlockController, imageSizeController;
-    TextView borderSizeTV, noOfBlockTV, imageSizeTV;
+    private ActivityControlsBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_controls);
+        binding = ActivityControlsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         initialize();
         addBackButton();
@@ -36,14 +37,6 @@ public class ControlsActivity extends AppCompatActivity {
 
     // initialization
     public void initialize() {
-        borderSizeController = findViewById(R.id.borderSizeController);
-        noOfBlockController = findViewById(R.id.noOfBlockController);
-        imageSizeController = findViewById(R.id.imageSizeController);
-
-        borderSizeTV = findViewById(R.id.borderSizeValue);
-        noOfBlockTV = findViewById(R.id.noOfBlockValue);
-        imageSizeTV = findViewById(R.id.imageSizeValue);
-
         setValuesToWidgets();
 
         setBorderChangeListener();
@@ -54,18 +47,18 @@ public class ControlsActivity extends AppCompatActivity {
     public void setValuesToWidgets() {
         // border size 10 - 50 px
         int temp = SharedPrefManager.getBorderSize(this);
-        borderSizeController.setProgress(temp - 10);
-        borderSizeTV.setText(getResources().getString(R.string.sizePx, temp));
+        binding.borderSizeController.setProgress(temp - 10);
+        binding.borderSizeValue.setText(getResources().getString(R.string.sizePx, temp));
 
         // image size 150 - 500 px
         temp = SharedPrefManager.getImageSize(this);
-        imageSizeController.setProgress(temp - 150);
-        imageSizeTV.setText(getResources().getString(R.string.sizePx, temp));
+        binding.imageSizeController.setProgress(temp - 150);
+        binding.imageSizeValue.setText(getResources().getString(R.string.sizePx, temp));
 
         // no of blocks 3, 5, 7 - 21
         temp = SharedPrefManager.getNoOfBlocks(this);
-        noOfBlockController.setProgress((temp - 3) / 2);
-        noOfBlockTV.setText(String.valueOf(temp));
+        binding.noOfBlockController.setProgress((temp - 3) / 2);
+        binding.noOfBlockValue.setText(String.valueOf(temp));
     }
 
     public void addBackButton() {
@@ -80,22 +73,22 @@ public class ControlsActivity extends AppCompatActivity {
 
     // handle widget clicks
     public void resetToDefaultClicked(View v) {
-        borderSizeController.setProgress(SharedPrefManager.DEFAULT_BORDER_SIZE - 10);
+        binding.borderSizeController.setProgress(SharedPrefManager.DEFAULT_BORDER_SIZE - 10);
         SharedPrefManager.setBorderSize(this, SharedPrefManager.DEFAULT_BORDER_SIZE);
 
-        imageSizeController.setProgress(SharedPrefManager.DEFAULT_IMAGE_SIZE - 150);
+        binding.imageSizeController.setProgress(SharedPrefManager.DEFAULT_IMAGE_SIZE - 150);
         SharedPrefManager.setImageSize(this, SharedPrefManager.DEFAULT_IMAGE_SIZE);
 
-        noOfBlockController.setProgress((SharedPrefManager.DEFAULT_NO_OF_BLOCKS - 3) / 2);
+        binding.noOfBlockController.setProgress((SharedPrefManager.DEFAULT_NO_OF_BLOCKS - 3) / 2);
         SharedPrefManager.setNoOfBlocks(this, SharedPrefManager.DEFAULT_NO_OF_BLOCKS);
     }
 
     public void setBorderChangeListener() {
-        borderSizeController.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        binding.borderSizeController.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int borderSize = progress + 10;
-                borderSizeTV.setText(getResources().getString(R.string.sizePx, borderSize));
+                binding.borderSizeValue.setText(getResources().getString(R.string.sizePx, borderSize));
             }
 
             @Override
@@ -112,11 +105,11 @@ public class ControlsActivity extends AppCompatActivity {
     }
 
     public void setImageChangeListener() {
-        imageSizeController.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        binding.imageSizeController.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int imageSize = progress + 150;
-                imageSizeTV.setText(getResources().getString(R.string.sizePx, imageSize));
+                binding.imageSizeValue.setText(getResources().getString(R.string.sizePx, imageSize));
             }
 
             @Override
@@ -133,11 +126,11 @@ public class ControlsActivity extends AppCompatActivity {
     }
 
     public void setBlockChangeListener() {
-        noOfBlockController.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        binding.noOfBlockController.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 int blocks = 2 * progress + 3;
-                noOfBlockTV.setText(String.valueOf(blocks));
+                binding.noOfBlockValue.setText(String.valueOf(blocks));
             }
 
             @Override

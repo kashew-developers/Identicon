@@ -24,12 +24,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
 import java.io.File;
@@ -40,10 +37,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
 
+import in.kashewdevelopers.identicon.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
-    ImageView identicon;
-    TextView fileLocation;
+    private ActivityMainBinding binding;
 
     Bitmap bitmap;
     Random random;
@@ -55,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         initialization();
         drawIdenticon();
@@ -114,13 +113,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initializeWidgets() {
-        identicon = findViewById(R.id.identicon);
-        fileLocation = findViewById(R.id.fileLocation);
-
-        identicon.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        binding.identicon.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                identicon.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                binding.identicon.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 setIdenticonSize();
             }
         });
@@ -129,14 +125,14 @@ public class MainActivity extends AppCompatActivity {
 
     // handle UI elements
     public void setIdenticonSize() {
-        int height = identicon.getMeasuredHeight();
-        int width = identicon.getMeasuredWidth();
+        int height = binding.identicon.getMeasuredHeight();
+        int width = binding.identicon.getMeasuredWidth();
         int minValue = Math.min(height, width);
 
-        ViewGroup.LayoutParams layoutParams = identicon.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = binding.identicon.getLayoutParams();
         layoutParams.height = minValue;
         layoutParams.width = minValue;
-        identicon.setLayoutParams(layoutParams);
+        binding.identicon.setLayoutParams(layoutParams);
     }
 
 
@@ -254,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
         green = random.nextInt(256);
         blue = random.nextInt(256);
 
-        fileLocation.setText("");
+        binding.fileLocation.setText("");
 
         random.setSeed(System.currentTimeMillis());
 
@@ -265,7 +261,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        identicon.setImageBitmap(bitmap);
+        binding.identicon.setImageBitmap(bitmap);
     }
 
 
@@ -279,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
             File imageFile = saveIdenticon();
 
             if (imageFile != null) {
-                fileLocation.setText(getApplicationContext().getString(R.string.fileLocation,
+                binding.fileLocation.setText(getApplicationContext().getString(R.string.fileLocation,
                         imageFile.getAbsolutePath()));
             } else {
                 Toast.makeText(this, "Error! Could'nt save file", Toast.LENGTH_LONG).show();
@@ -314,8 +310,7 @@ public class MainActivity extends AppCompatActivity {
     // ads
     public void manageAds() {
         MobileAds.initialize(this);
-        AdView adView = findViewById(R.id.adView);
-        adView.loadAd(new AdRequest.Builder().build());
+        binding.adView.loadAd(new AdRequest.Builder().build());
     }
 
 }
