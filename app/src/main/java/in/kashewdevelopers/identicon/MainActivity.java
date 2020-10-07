@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.MobileAds;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
@@ -189,17 +190,19 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
-        file = new File(path, getString(R.string.app_name) + "/" + fileName + ".png");
+        file = new File(path, getString(R.string.app_name) + "/" + fileName + ".jpg");
         int counter = 1;
         while (file.exists()) {
-            file = new File(path, getString(R.string.app_name) + "/" + fileName + " - " + counter + ".png");
+            file = new File(path, getString(R.string.app_name) + "/" + fileName + " - " + counter + ".jpg");
             counter++;
         }
 
         try {
             fOut = new FileOutputStream(file);
 
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fOut);
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            fOut.write(bytes.toByteArray());
             fOut.flush();
             fOut.close();
 
