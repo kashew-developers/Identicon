@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     int imageSize, borderSize, numberOfBlocks, blockSize;
     int red, green, blue;
-    int WRITE_PERMISSION = 1234;
+    int WRITE_PERMISSION = 1234, SHARE_PERMISSION = 4321;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == WRITE_PERMISSION) {
             if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED)
                 noPermission();
+            else
+                saveClicked(null);
+        } else if (requestCode == SHARE_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] != PackageManager.PERMISSION_GRANTED)
+                noPermission();
+            else
+                shareClicked(null);
         }
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
@@ -143,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED);
     }
 
-    public void askWritePermission() {
+    public void askWritePermission(int permissionCode) {
         if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
@@ -159,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
                     .show();
         } else {
             ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, WRITE_PERMISSION);
+                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, permissionCode);
         }
     }
 
@@ -285,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         } else {
-            askWritePermission();
+            askWritePermission(WRITE_PERMISSION);
         }
     }
 
@@ -305,7 +312,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
         } else {
-            askWritePermission();
+            askWritePermission(SHARE_PERMISSION);
         }
     }
 
