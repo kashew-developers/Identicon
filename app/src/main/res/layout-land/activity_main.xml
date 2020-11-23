@@ -16,6 +16,7 @@
         android:contentDescription="@string/app_name"
         android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="@id/verticalGuideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@id/refreshSection" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/sahreSection"
+        android:id="@+id/shareSection"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -77,27 +78,14 @@
         android:id="@+id/fileLocation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="@string/fileLocation"
         android:textSize="15sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@id/adView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/verticalGuideline"
-        app:layout_constraintTop_toBottomOf="@id/sahreSection"
-        app:layout_constraintVertical_bias="0.8" />
-
-    <com.google.android.gms.ads.AdView xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:elevation="10dp"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/bottom_ad_id"
-        ads:layout_constraintBottom_toBottomOf="parent"
-        ads:layout_constraintEnd_toEndOf="parent"
-        ads:layout_constraintStart_toEndOf="@id/verticalGuideline" />
+        app:layout_constraintTop_toBottomOf="@id/shareSection" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/verticalGuideline"
