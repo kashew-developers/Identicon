@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity() {
 
     // saving identicon
     private fun saveIdenticon(): File? {
-        val path = this.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val path = Environment.getExternalStorageDirectory()
 
         val date = Date()
         val calendar = Calendar.getInstance()
