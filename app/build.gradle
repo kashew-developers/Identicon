@@ -8,8 +8,8 @@ android {
         applicationId "in.kashewdevelopers.identicon"
         minSdkVersion 22
         targetSdkVersion 30
-        versionCode 5
-        versionName "2.3"
+        versionCode 6
+        versionName "3.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
