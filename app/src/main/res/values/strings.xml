@@ -9,6 +9,7 @@
     <string name="save">Save</string>
     <string name="share">Share</string>
     <string name="resetToDefault">Reset to Default</string>
+    <string name="cancel">Cancel</string>
 
     <!-- labels -->
     <string name="fileLocation">File saved at : %s</string>
@@ -16,5 +17,13 @@
     <string name="numberOfBlocks">Number of Blocks</string>
     <string name="imageSize">Image Size</string>
     <string name="sizePx">%d px</string>
+
+    <!-- dialogs -->
+    <string name="need_storage_permission">Need Storage Permission</string>
+    <string name="give_permission">Give Permission</string>
+
+    <!-- toasts -->
+    <string name="give_permission_toast">Give permission to save file</string>
+    <string name="error_sharing">Error! Could\'nt share file</string>
 
 </resources>
